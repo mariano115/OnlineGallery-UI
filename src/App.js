@@ -1,13 +1,16 @@
-import Home from './Views/Home/Home'
-import React from 'react';
+import HomePage from './Views/Home/Home'
+import React, { Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Home></Home>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

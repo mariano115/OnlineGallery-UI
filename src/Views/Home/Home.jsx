@@ -1,60 +1,62 @@
+/* eslint-disable */
 import React, { useEffect } from "react";
 import { getPhotos } from '../../Services/PhotoService';
-import Photo from '../../Components/Photo';
+import "./Home.css";
+import Photo from "../../Components/Photo/Photo";
+import axios from 'axios';
+import MainLayout from "../../Layout/MainLayout";
 
-export default function home(params) {
-  /*const [photos, setPhotos] = React.useState([]);
+const HomePage = () => {
+  const [photos, setPhotos] = React.useState(null);
 
-  useEffect((e) => {
-    //console.log(getPhotos())
-    setPhotos(getPhotos())
-    //.then(resp => console.log(resp))
-  })*/
-  const photos = [{
-    id: 1,
-    title: "first project",
-    url: "https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000",
-  },
-  {
-    id: 2,
-    title: "second project",
-    url: "https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000",
-  },
-  {
-    id: 3,
-    title: "third project",
-    url: "https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000",
-  }]
 
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/v1/photos")
+      .then(res => {
+        setPhotos(res.data)
+      })
+
+  }, [])
 
   return (
-    <div className="forms">
-      {photos.map((photo, i ) =>
-        <Photo
-          id={photo.id}
-          title={photo.title}
-          url={photo.url}
-          key={i}
-        />
-      )}
+    <div>
+      <MainLayout />
+      <div className="homePage centered">
+
+        {photos && photos.map((item, i) => (
+          <div key={i}>
+            <Photo id={item.id} title={item.title} url={item.url} />
+          </div>
+        ))}
       </div>
+    </div>
   );
 }
 
-/*<ImageList sx={{ width: 500, height: 450 }}>
-          {photos.map((item) => (
-            <ImageListItem key={item.img}>
-              <img
-                src={`${item.img}?w=248&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-              />
-              <ImageListItemBar
-                title={item.title}
-                subtitle={<span>by: {item.author}</span>}
-                position="below"
-              />
-            </ImageListItem>
-          ))}
-          </ImageList>*/
+export default HomePage;
+
+
+/*
+<Photo id={photos[0].id} title={photos[0].title} url={photos[0].url}/>
+<Photo id={photos[1].id} title={photos[1].title} url={photos[1].url}/>
+<Photo id={photos[2].id} title={photos[2].title} url={photos[2].url}/>*/
+/*<Photo id={item.id} title={item.title} url={item.url}/>*/
+
+/*const photos = [{
+   id: 1,
+   title: "first project",
+   url: "https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000",
+ },
+ {
+   id: 2,
+   title: "second project",
+   url: "https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000",
+ },
+ {
+   id: 3,
+   title: "third project",
+   url: "https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000",
+ }]*/
+
+
+
