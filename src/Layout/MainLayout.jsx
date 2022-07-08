@@ -16,22 +16,18 @@ const data = [
         name: "Home",
         icon: <HomeOutlined />,
     },
-    { name: "Inbox", icon: <InboxOutlined /> },
-    { name: "Outbox", icon: <CheckBoxOutlineBlankOutlined /> },
-    { name: "Sent mail", icon: <MailOutline /> },
-    { name: "Draft", icon: <DraftsOutlined /> },
-    { name: "Trash", icon: <ReceiptOutlined /> },
+    { name: "Inbox", icon: <InboxOutlined /> }
 ];
 
 const MainLayout = () => {
-    const [setDrawerOpen, drawerOpen] = React.useState(false);
+    const [drawerOpen, setDrawerOpen] = React.useState(false);
 
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
     };
 
     const getList = () => (
-        <div style={{ width: 250 }} onClick={() => toggleDrawer()}>
+        <div style={{ width: 250 }} onClick={() => setDrawerOpen(false)}>
             {data.map((item, index) => (
                 <ListItem button key={index}>
                     <ListItemIcon>{item.icon}</ListItemIcon>
@@ -43,11 +39,11 @@ const MainLayout = () => {
 
     return (
         <div>
-            <Button onClick={toggleDrawer()}>Menu</Button>
+            <Button onClick={() => setDrawerOpen(true)}>Menu</Button>
             <Drawer
                 anchor='left'
                 open={drawerOpen}
-                onClose={toggleDrawer()}
+                onClose={() => setDrawerOpen(false)}
             >
                 {getList()}
             </Drawer>
