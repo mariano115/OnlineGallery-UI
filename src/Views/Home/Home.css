@@ -1,16 +1,17 @@
 .homePage {
-    text-align: center;
-    height: 100vh;
     overflow: auto;
-    /* Magic here */
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     flex-wrap: wrap;
+    width: 80%; 
 }
 
 .centered {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.responsive-layout-button {
+    justify-content: center;
+    margin: 0 auto;
+    width: 70%;
 }
