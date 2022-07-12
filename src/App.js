@@ -1,5 +1,6 @@
 import HomePage from './Views/Home/Home'
-import React, { Fragment } from 'react';
+import About from './Views/About/About'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
@@ -9,6 +10,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );

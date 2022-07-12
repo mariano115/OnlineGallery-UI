@@ -12,15 +12,17 @@ import {
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomePage from '../../Views/Home/Home';
+import InfoIcon from '@mui/icons-material/Info';
 import './ResponsiveLayout.css';
 import Logo from '../../Assets/Logo.png';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const data = [
     {
         name: "Home",
         icon: <HomeOutlined />,
     },
-    { name: "Inbox", icon: <InboxOutlined /> }
+    { name: "About Me", icon: <InfoIcon /> }
 ];
 
 const MainLayout = () => {
@@ -29,7 +31,7 @@ const MainLayout = () => {
     const getList = () => (
         <div style={{ width: 250 }} onClick={() => setDrawerOpen(false)}>
             {data.map((item, index) => (
-                <ListItem button key={index}>
+                <ListItem button key={index} href="https://www.google.com">
                     <ListItemIcon>{item.icon}</ListItemIcon>
                     <ListItemText primary={item.name} />
                 </ListItem>
@@ -38,12 +40,12 @@ const MainLayout = () => {
     );
 
     return (
-            <div className="layout">
-                <Button onClick={() => setDrawerOpen(true)}>
-                    <IconButton>
-                        <MenuIcon />
-                    </IconButton>
-                </Button>
+        <div className="layout">
+            <Button onClick={() => setDrawerOpen(true)}>
+                <IconButton>
+                    <MenuIcon />
+                </IconButton>
+            </Button>
                 <Drawer
                     anchor='left'
                     open={drawerOpen}
@@ -51,8 +53,8 @@ const MainLayout = () => {
                 >
                     {getList()}
                 </Drawer>
-                <img src={Logo} alt="Mariano Guerrero Developer Logo" className="mariano-logo"/>
-            </div>
+            <img src={Logo} alt="Mariano Guerrero Developer Logo" className="mariano-logo" />
+        </div>
     )
 }
 
