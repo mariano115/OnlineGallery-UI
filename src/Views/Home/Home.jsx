@@ -5,6 +5,7 @@ import "./Home.css";
 import Photo from "../../Components/Photo/Photo";
 import axios from 'axios';
 import ResponsiveLayout from "../../Layout/ResponsiveLayout/ResponsiveLayout";
+import MainLayout from "../../Layout/MainLayout/MainLayout";
 
 const HomePage = () => {
   const [photos, setPhotos] = React.useState(null);
@@ -19,6 +20,7 @@ const HomePage = () => {
 
   return (
     <div>
+        <MainLayout/>
       <div className="responsive-layout-button">
         <ResponsiveLayout />
       </div>

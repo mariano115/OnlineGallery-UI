@@ -9,7 +9,9 @@ import AutomationTesting from '../../Assets/AutomationTesting.png'
 import Agile from '../../Assets/Agile.png'
 import ResponsiveLayout from '../../Layout/ResponsiveLayout/ResponsiveLayout';
 import MarianoPhoto from '../../Assets/MarianoPhoto.jpg'
+import Github from '../../Assets/Github.webp'
 import "./About.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -31,6 +33,7 @@ const About = () => {
         <CardDetails img={Tester} title="Qa Tester" description="Experience in Testing Designing and Executing Cases" />
         <CardDetails img={AutomationTesting} title="Qa Automation" description="Experience in Automation Testing using diferent tecnologies like Selenium, HP UFT, Jmeter, Jenkins" />
         <CardDetails img={Agile} title="Agile methodologies" description="Work experience with agile methodologies such as Scrum." />
+        <a href="https://github.com/mariano115?tab=repositories" className="href-cards"><CardDetails img={Github} title="Github Projects" description="Multiple proyects in this platform" /></a>
       </div>
     </div>
   );

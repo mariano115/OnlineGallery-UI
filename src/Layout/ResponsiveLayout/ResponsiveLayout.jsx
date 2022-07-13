@@ -15,23 +15,24 @@ import HomePage from '../../Views/Home/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import './ResponsiveLayout.css';
 import Logo from '../../Assets/Logo.png';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 
 const data = [
     {
         name: "Home",
+        path: "/",
         icon: <HomeOutlined />,
     },
-    { name: "About Me", icon: <InfoIcon /> }
+    { name: "About Me", path: "/about", icon: <InfoIcon /> }
 ];
 
-const MainLayout = () => {
+const ResponsiveLayout = () => {
     const [drawerOpen, setDrawerOpen] = React.useState(false);
 
     const getList = () => (
         <div style={{ width: 250 }} onClick={() => setDrawerOpen(false)}>
             {data.map((item, index) => (
-                <ListItem button key={index} href="https://www.google.com">
+                <ListItem button component={Link} to={item.path} key={index}>
                     <ListItemIcon>{item.icon}</ListItemIcon>
                     <ListItemText primary={item.name} />
                 </ListItem>
@@ -58,4 +59,4 @@ const MainLayout = () => {
     )
 }
 
-export default MainLayout;
+export default ResponsiveLayout;

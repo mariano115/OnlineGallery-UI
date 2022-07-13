@@ -33,3 +33,7 @@
     margin:40px 0px;
     font-family: 'Noto Sans', sans-serif;
 }
+
+.href-cards{
+    text-decoration: none;
+}
