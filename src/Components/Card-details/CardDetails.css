@@ -1,0 +1,6 @@
+.cards-image {
+    width: 350px;
+    height: 400px;
+    object-fit: cover;
+    margin: 10px;
+}

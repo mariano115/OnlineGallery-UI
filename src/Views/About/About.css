@@ -1,0 +1,35 @@
+.aboutPage {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%; 
+    
+}
+
+.responsive-layout-button {
+    justify-content: center;
+    margin: 0 auto;
+    width: 75%;
+}
+
+.mariano-photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 200px;
+}
+
+.cards-history {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%; 
+}
+
+.headers {
+    display: flex;
+    align-items: center;
+    width: 80%; 
+    max-width: 65%;
+    margin:40px 0px;
+    font-family: 'Noto Sans', sans-serif;
+}
