@@ -11,7 +11,7 @@ const HomePage = () => {
   const [photos, setPhotos] = React.useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/photos")
+    axios.get("https://online-gallery-core.herokuapp.com/api/v1/photos")
       .then(res => {
         setPhotos(res.data)
       })
